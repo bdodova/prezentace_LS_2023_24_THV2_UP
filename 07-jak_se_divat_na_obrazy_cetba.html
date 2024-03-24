@@ -1,0 +1,475 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Prezentace: Setkání 7 - Jak se dívat na obrazy</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/simple.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <style>
+      img.scale-60vh { height: 60vh;}
+      img.scale-50vh { height: 50vh;}
+      img.scale-40vh { height: 40vh;}
+      img.scale-30vh { height: 30vh;}
+
+      :root {
+        --r-main-font: Helvetica, sans-serif;
+        --r-main-font-size: 35px;
+      }
+      .full {
+        height:100%;
+        width:100%;
+      }
+
+      .caption {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        max-width: 60%;
+        text-align: right;
+
+        font-size: 0.6em;
+        line-height: 1.2em;
+        padding: 0.2em;
+      }
+      .black{
+        color: black;
+        background-color: rgba(255, 255, 255, .8);
+      }
+      .reveal .footer {
+          position: absolute;
+          bottom: 1em;
+          left: 1em;
+          font-size: 0.5em;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator-notes="^Note:">
+          <textarea data-template>
+## Jak se dívat na obrazy
+#### (Teorie humanitních věd 2, 25. 3. 2024)
+
+cultural analytics, ikonologie, jazykový a obrazový obrat, obraztext, simulakra
+---
+
+### Čtení Manoviche (1/2)
+- Lev Manovich: [How to Compare One Million Images?](http://softwarestudies.com/cultural_analytics/2011.How_To_Compare_One_Million_Images.pdf)
+- cultural analytics
+- dataset:
+  - 883 sérií manga z portálu OneManga (~ 1 milión obrazů)
+  - scanlation = scan + translation
+- porovnání jako základní metoda analýzy obrazu, ale jak?
+
+Note:
+scanlation
+  - fanouškovský překlad manga komiksu
+  - proč?
+    - rychlejší vydávání než oficiální distribuce překladů
+    - možnost přečíst si nedostupné raritní manga
+    - nespokojenost s oficiálním vydáním (převracení japonského toku textu do "okcidentální" formy mohla způsobit zmatek v grafice, například názvy budov pak byly obráceně)
+    - pro členy scanlation teamu mohla práce představovat prestiž
+
+proces vzniku scanlation:
+  - téměř profesionalizovaná
+  - sken -> překlad -> proofreading-> čištění obrazu -> sazba textu -> kontrola kvality
+
+OneManga
+  - portál skončil v roce 2010 kvůli obavě ze sporů ohledně autorských práv
+
+Předpoklad: Porovnání je základní metoda zkoumání výtvarných objektů
+- Otázka: Jak to dělat s 1 milionem obrázků?
+- Proč je důležitá?
+  - Máme takhle velké datasety, ale neumíme s nimi pracovat. (Problém škály)
+  - Naše porovnávání jsou fuzzy. (Problém smyslů.)
+
+---
+
+### Čtení Manoviche (2/2)
+- kvalitativní porovnání náhodně zvolené dvojice
+- sampling
+- explorace pomocí SW nástroje
+- anotace a statistická analýza
+- "cultural analytics"
+
+Problémy:
+  - kvalitativní a subjektivní porovnání náhodné dvojice - je ta dvojice reprezentativní?
+  - samplování každého 100. obrázku - je potřeba vědět něco o tom, jak moc se od sebe obrázky liší (statistiky, jako rozptyl)
+  - anotace jako způsob jak zachytit rozdíly v jazyce
+    - reprezentace obrazu v jazyce!
+    - subjektivita! Je těžké rozlišit malé rozdíly očima.
+
+Cultural analytics
+- "Rozumění skrz obrazy"
+- The term "cultural analytics" was coined by Lev Manovich in 2007.
+- Cultural analytics refers to the use of computational, visualization, and big data methods for the exploration of contemporary and historical cultures. While digital humanities research has focused on text data, cultural analytics has a particular focus on massive cultural data sets of visual material – both digitized visual artifacts and contemporary visual and interactive media
+
+</textarea></section>
+<section data-background-image="img/7/jak_se_divat_na_obrazy-vampire_knights_vs_one_piece_huge_visual_distinction.png" data-background-size="contain" data-background-color="black"></section>
+<section data-background-image="img/7/jak_se_divat_na_obrazy-naruto_vs_one_piece_small_distinction.png" data-background-size="contain" data-background-color="black"></section>
+<section data-markdown data-separator-notes="^Note:">
+<textarea data-template>
+
+### Cultural analytics
+- automatická extrakce features
+  - průměr, standardní odchylka, entropie
+- vizualizace
+  - scatteplot, "Image Plot"
+  - line-graph
+</textarea></section>
+<section data-background-image="img/7/jak_se_divat_na_obrazy-mean_stddev_comparison_few_images.png" data-background-size="contain" data-background-color="white"></section>
+<section data-background-image="img/7/jak_se_divat_na_obrazy-stddev_entropy_comparison_Abara_comics.png" data-background-size="contain" data-background-color="white"></section>
+<section data-background-image="img/7/jak_se_divat_na_obrazy-stddev_entropy_comparison_Abara_NOISE_comics.png" data-background-size="contain" data-background-color="white"></section>
+<section data-markdown data-separator-notes="^Note:">
+<textarea data-template>
+
+### Výklad obrazu (1/2)
+- Giorgio Vasari(1511–1574)
+  - Životy nejlepších malířů, sochařů a architektů (1550)
+  - disegno
+- Erwin Panofsky(1892–1968)
+  - Studies in Iconology (1939) - ikonografie, ikonologie
+
+Note:
+Giorgio Vasari(1511–1574)
+  - malíř, architekt, první kunsthistorik
+  - Životy nejlepších malířů, sochařů a architektů (1550)
+    - zavedl pojem renesance (rinascita) v tištěné podobě, ačkoli povědomí o probíhajícím znovuzrození bylo běžné
+    - používal termín gotické umění (Goth ~ barbarský německý styl)
+    - zavedl mýtus hladového umělce: Vasariho florentští umělci vynikali, protože byli hladoví a byli hladoví, protože mezi nimi panovala tvrdá konkurence
+    - upřednostňoval florentské umění (přátelil se s Michelangelem), benátské (třeba Tizian) zprvu ignoroval
+
+disegno
+    - disegno: "drawing," was the father of the three arts of painting, sculpture, and architecture.
+    Yet he also emphasized that the term should also encompass the concept and spark of creation—it was
+    "the animating principal of all creative processes." Several decades later, with some clever wordplay,
+    Federico Zuccaro used disegno as evidence that all artistic design was
+    divinely inspired: It was the segno di Dio (sign of God).
+
+    - During the Renaissance in Florence, drawing was regarded as the unifying practice of all the arts,
+    embodying the fundamental concept of design (disegno means both “drawing” and “design”).
+    Because of this, Florence had a reputation for producing so-called “universal” artists
+
+    – those who had mastered painting, sculpture, and architecture, from the 14th-century
+   artist Giotto up to Leonardo da Vinci and Michelangelo in the 16th century. Drawing was
+   a key activity of central Italian artists’ training and practice,
+   and good draftsmanship was regarded as a prerequisite for good painting.
+   By drawing continuously, apprentices learned basic artistic principles
+   (especially the science of anatomy and perspective), and treasured drawings, sometimes
+   collected in pattern books, recorded favorite motifs and poses.
+   Painters produced sketches, studies, and cartoons to aid the execution of finished pictures,
+   especially frescoes. In addition to these practical functions, during the Renaissance period,
+   drawings were increasingly viewed as a manifestation of the artistic process of invenzione
+   – the formulation of the artist’s creative idea.
+
+Erwin Panofsky(1892–1968)
+  - renesanční malíři
+  - Studies in Iconology (1939)
+    - 3 úrovně porozumění výtvarnému dílu
+      - rozpoznání referentu (Poslední večeře je 13 mužů sedících u stolu)
+      - "iconography" - identifikace postav a předmětů: Ježíš a apoštolové
+      - "iconology" - význam osob a prvků v obraze: Odpovídá na otázky, které si lze u obrazu klást. Proč je na stole tenhle předmět a ne jiný?
+
+In Studies in Iconology Panofsky details his idea of three levels of art-historical understanding:[10]
+Primary or natural subject matter:
+- factual meaning, "recognition of things" based on practival experience; factual meaning
+- The most basic level of understanding, this stratum consists of perception of the work's pure form.
+  Take, for example, a painting of the Last Supper.
+  If we stopped at this first stratum, such a picture could only be perceived as a painting of 13 men seated at a table.
+  This first level is the most basic understanding of a work, devoid of any added cultural knowledge.
+Konkrétně: motivy
+
+Secondary or conventional subject matter (iconography):
+- Interpretation according to the customs of the cultural domain.
+- Itelligible to the members of the culture
+- This stratum goes a step further and brings to the equation cultural and iconographic knowledge.
+  For example, a Western viewer would understand that the painting of 13 men around a table would
+  represent the Last Supper. Similarly, a representation of a haloed man with a lion could be interpreted as a depiction of St. Mark.
+Konkrétně: příběhy, alegorie
+
+Tertiary or intrinsic meaning or content (iconology):
+  This level takes into account personal, technical, and cultural history into the understanding of a work.
+  It looks at art not as an isolated incident, but as the product of a historical environment.
+  Working in this stratum, the art historian can ask questions like
+  “why did the artist choose to represent The Last Supper in this way?” or
+  “Why was St. Mark such an important saint to the patron of this work?”
+  Essentially, this last stratum is a synthesis; it is the art historian asking "what does it all mean?"
+Konkrétně: Význam poslední večeře pro renesanční svět
+"When we try to understand [the last Supper] as a document of Leonardo's personality,
+or of the civilization of the Italian High Renaissance,
+... we deal with the work as a symptom od something else
+which expresses itself in a countless variety of other symptoms,
+and we interpret its compositional and iconographical features
+as more particularized evidence of this 'something else'."
+
+---
+### Výklad obrazu (2/2)
+- Leonardo da Vinci: anatomická kresba
+- Tizian: Apollón a Marsyas (okolo 1570)
+- Diego Velázquez: Dvorní dámy (cca 1656)
+- René Magritte: Zrada obrazů (1929)
+- Jackson Pollock
+
+Note:
+Tizián: Marsyas a Apollon
+  - nejznámější Tizianův obraz
+  - nejcennější umělecké dílo na území České republiky, nyní na zámku v Kroměříži
+  - namaloval ho v devadesáti letech, těsně před smrtí
+  - velkými štětci, špachtlemi a vlastními prsty
+  - v bohatých nánosech barvy (30 vrstev) a změti odstínů hnědé
+  - 1576 Tizian zemřel v Benátkách, obraz zůstal součástí jeho sbírek
+  - někdy v prvních desetiletích 17. století se mohl dostat do sbírek významného anglického sběratele Thomase Howarda z Arundelu
+  - po jeho smrti vede cesta obrazu do Amsterodamu
+  - pak do Utrechtu
+  - pak nejspíš prodán do sbírek kolínských obchodníků s uměním, kteří v roce 1667 nabídli svůj obrazový kabinet císaři Leopoldovi a převezli jej do Vídně
+  - Císař Leopold I (1640 – 1705) kabinet nakonec nekoupil,
+  - a tak se po dalších peripetiích na ně usmálo štěstí v osobě biskupa Karla z Lichtenštejna-Kastelkornu
+  - 1673 se obraz dostal do sbírek olomouckého biskupa Karla z Lichtenštejnu-Kastelkorna
+  - od té doby ve sbírkách olomouckých biskupů, od roku 1777 arcibiskupů
+  - obraz nevstoupil do kritické literatury až do roku 1909
+  - ve 30. letech 20. století jej již historici umění „přijali jako důležitou pozdní práci“ Tiziana
+  - první moderní výstava v zahraničí: "hvězdná atrakce" významné výstavy v londýnské Královské akademii roku 1983
+
+Tizián: Marsyas a Apollón
+  - příběh z Ovidiových Proměn
+  - satyr Marsyas soutěží z Apollónem ve hře na hudení nástroj
+  - Marsyas: dvojitá flétna (Panova flétna v Tizianově době), Apollón lyra (předchůdce houslí)
+
+Interpretace 1: obraz odráží myšlenky renesančního novoplatonismu o „osvobození ducha z těla“
+  - hybris (výzva  soutěži) vede ke katastrofě, ale zároveň představuje příležitost pro katarzi
+  - lyra = Apollón (strunný nástroj), Marsyas = dvojitá flétna ("přízemní" dechový nástroj)
+  -  na obraze je dvojitá flétna nahrazena Panovou flétnou, která Marsyasovi visí nad hlavou
+  - „poměr sil dionýsovské temnoty a apollonské jasnosti: soutěž skončila stažením Marsya, bylo to proto,
+     že stahování z kůže bylo samo dionýsovským rituálem, tragickým ritem očisty, jímž se odhazuje ošklivost
+    vnějšího člověka a odhaluje krása jeho vnitřního já.“
+
+Jenže Interpretace 1:
+  - nelze identifikovat postavy
+    - Kolik Apollónů je na obraze?
+        - Apollón (s vavřínovým věncem) stahuje z kůže,
+         ale pak je tam postava hrající na lyru (lira da braccio, předchůdce houslí s až sedmi strunami)
+    - Je sedící postava Midas? Nemá oslí uši.
+    - naopak Pan, postava s divokým pohledem, zdá se, má oslí uši
+    - Midasův soud byla další hudební soutěž
+       - zase lyry proti flétně,
+         ale se samotným Panem hrajícím na flétnu.
+       - Samozřejmě, že Apollo zvítězil, ale v některých verzích
+       král Midas upřednostnil flétnu a byl potrestán oslíma ušima,
+       zatímco Pan byl jen ponížen. Sedící postava vpravo má na hlavě korunu,
+       takže je to Midas, ale jeho uši se zdají být nedotčeny.
+
+další interpretace: vzdor designu
+  - slova - (smysl, význam, idea) mohou zakrýt a zneviditelnit části obrazu
+  - materiál, rám
+
+
+</textarea></section>
+<section data-background-image="img/7/davinci-kresba-anatomie_cloveka.webp" data-background-size="contain" data-background-color="black"></section>
+<section data-background-image="img/7/jak_se_divat_na_obrazy-Titian_-_The_Flaying_of_Marsyas.jpg" data-background-size="contain" data-background-color="black"></section>
+<section data-background-image="img/7/Las_Meninas - Diego_Velázquez.jpg" data-background-size="contain" data-background-color="black"></section>
+<section data-background-image="img/7/the-treachery-of-images-this-is-not-a-pipe-1948.jpg" data-background-size="contain" data-background-color="black"></section>
+<section data-background-image="img/7/Jackson-Pollock-painting-studio-Long-Island-New-1950.webp" data-background-size="contain" data-background-color="black"></section>
+<section data-markdown data-separator-notes="^Note:"><textarea data-template>
+### Zavěšení obrazu
+- Salón Louvre (1787)
+- Poslední výstavu futuristických obrazů 0.10 (1915)
+  - Kazimir Malevič: Černý čtverec (1913)
+- popisky
+</textarea></section>
+<section data-background-image="img/7/jak_se_divat_na_obrazy-Salon_du_Louvre_1787.jpg" data-background-size="contain" data-background-color="black"></section>
+<!--
+Salón
+  - obrázek: Salón Lourve 1787
+  - zavěšení obrazu dle Salónu
+  - Salón začal roku 1667 jako polo-veřejná výstava Královská akademie malby a sochařství v Paříži (1. umělecká Akademie ve Francii)
+  - výstava prací nedávných absolventů (Académie des Beaux-Arts)
+  - od 1737 výstavy veřejné
+  - Between 1748 and 1890 it was arguably the greatest annual or biennial art event in the Western world.
+  - žádné popisky, stěny zcela zaplněné
+  - spor o místo
+  - konzervativní posuzovatelé: díla impresionistů odmítnuta
+-->
+<section data-background-image="img/7/jak_se_divat_na_obrazy-malevich.jpg" data-background-size="contain" data-background-color="black"></section>
+<!--
+Zavěšení dle Salónu na výstavě suprematistů v Petrohradu (1915)
+  - V rohu na místě ikony (!!!) je Malevičův Černý čtverec.
+  - The Last Exhibition of Futurist Painting 0.10
+  - "Up until now there were no attempts at painting as such, without any attribute of real life… Painting was the aesthetic side of a thing, but never was original and an end in itself."
+-->
+<section data-markdown data-separator-notes="^Note:"><textarea data-template>
+### Proti názvům a obdobím
+- Atlas Mnémosyné
+  - Aby Warburg (1866–1929)
+  - Nachleben, formule patosu
+  - fotografický katalog [zde](https://warburg.library.cornell.edu/panel/46)
+- Georges Didi-Huberman: ninfy, drapérie
+
+Note:
+  Aby Warburg
+  - německý kunsthistorik
+  - v Hamburku založil rok 1900 vědeckou knihovnu Biliothek Warburk
+  - v roce 1933 přesídlila do Londýn a stal se z ní Warburgův institut
+  - v institutu pracoval například Ernst Hans Joseph Gombrich, jehož Příběh umění je oblíbený úvod pro kunsthistoriky
+  - věnoval se přednáškové činnosti, ale mnoho toho nepublikoval
+
+Vyložit umělecké dílo dle klasické školy znamená
+  - šťastný nález, dešifrování nečitelného systému znaků a opětovné přečtení
+  - obraz jako text
+  - předpoklad nehybnosti díla
+  - vede to i na kauzální dějiny umění s epochami, které někam směřují a logicky na sebe navazují
+
+Mnémosyné
+  - řecká bohyně paměti
+  - paměť: dialektika mezi přežíváním a zapomínáním
+Nachleben - "přežívání" nebo také "druhý život", znovu objevování kulturních forem, figur, uměleckých praktik a vzorců patosu, které při svém opětovném vynoření mění význam
+Formule patosu
+
+Didi-Huberman + Zpátky k Apollónovi a Marysas (skvrny na nohou jako obloha, málo anatomie, ačkoliv se stahuje z kůže)
+- materiál, povrch, beztvarost
+- obrazy kladou odpor v momentě, kdy se je snažíme myslet
+
+Atlas Mnémosyné
+  - "Atlas obrazů" (Bilderatlas v jeho deníku)
+  - začal ho tvořit 1926–1929 (nedokončil ho)
+  - panely, na kterých jsou černobílé fotografie obrazů, soch, stránky z knih, známky, výstřižky z novinm tarotové karty, mince a jiné typy obrazového materiálu
+  - tři verze: panely přeskupoval a obrazový materiál také
+    - verze z roku 1928 (43 panelů, "1-43")
+    - počátek roku 1929 (71 panelů a 1050 obrazů)
+    - v době jeho smrti, 63 panelů o velikosti 170x140cm (63 panelů, 971 obrazů, "1-79")
+  - obrazový materiál je bez popisků
+  - otazník pro následující generace kunsthistoriků
+
+</textarea></section>
+<section data-markdown data-separator-notes="^Note:">
+<textarea data-template>
+
+### Dva obraty
+- obrat k jazyku (linguistic turn, Sprachwende)
+  - Jaroslav Peregrin: [Obrat k jazyku: Druhé kolo](http://jarda.peregrin.cz/mybibl/HTMLTxt/467.htm)
+  - diskurz, textualita
+  - Hayden White: tropika diskurzu (figury chápání): metafora, metonymie, synekdocha, ironie
+- obrat k obrazu (pictorial turn)
+  - J. W. T. Mitchell: obraztexty v [The Pictorial Turn](https://www.artforum.com/print/199203/the-pictorial-turn-33613)
+  - vizuální kultura, masmédia
+  - Jean Baudrillard: simulakrum
+
+Note:
+Ověřování validity prozaických diskurzů
+běžně:
+  - ověření pravivosti faktů
+  - ověření dodržování pravidel logické konzistentnosti (validní sylogismy)
+Tohle ale nejde, protože:
+- diskurz ustanovuje půdu pro konání výpovědí
+- rozhoduje, co bude bráno jako fakt
+- jaký režim chápání bude pro daná fakta nejvhodnější
+
+Whiteova analýza
+  - analytická tradice vs. performativní síla narativního diskurzu: "Vyprávění nic nepředvádí, nic nenapodobuje ... funkcí vyprávění není zobrazovat, ale vytvořit podívanou." (Barthes)
+  - poetický diskurz: udává netriviální strukturu, rytmus motivických vztahů (pro případ historie)
+  - vysvětlení jsou pouhý komentář k narativu
+  - závěr: narativní historie je odlišná od vědeckého výkladu probíraných událostí, ale to neznamená, že není pravdivá
+
+From Exotic to Useful
+
+Tropika
+One such “defensive” narrative occasion is our experience of anything new and perhaps threatening:
+a place (Mars),
+an experience (a strange new movie),
+a community of people (Iraqis), or a new idea (Marx’s concept of hegemony)
+In essence, “Understanding is a process,”
+writes White, “of rendering the unfamiliar…familiar; of removing it from the domain
+of things felt to be ‘exotic’ and unclassified into one or another domain of experience
+encoded adequately enough to be felt to be humanly useful, nonthreatening, or simply known by association” (5).
+
+White observes that we construct narratives to plot our experience of this discovery process,
+which follows recognizable stages of understanding. These steps are not so much of
+how we actually understand something new, but how we plot the story of coming to understand.
+
+1. Comparing to the Known: metaphore
+The “I” of the narrative starts with what White calls “an original metaphorical characterization” of the new experience.
+Basically, we compare the new with the familiar as a kind of rough equivalence.
+Mars, for instance, is a little like the Mojave Desert in the Southwest United States.
+It’s also airless, however, which the metaphor doesn’t account for,
+but this is only the first chapter in the story we tell ourselves of our process of understanding.
+
+2. Breaking It into Parts: metonymie
+The “I” then moves to a new stage of understanding this new experience,
+what White terms “metonymic deconstructions of its elements” (5).
+We find ways of breaking down or subdividing the new experience to see what it’s made of.
+We make a map of Mars (dispersing its elements across a “spatial field” [6]), or we write a plot summary
+of the strange new movie to get a handle on what happens in it (dispersing its elements across a “time series” [6]).
+Sometimes the story of our discovery stops here “in what appears to be a final analytical act”.
+
+3. Organizing the Parts into a Whole: synekdocha
+Celé město bylo na nohou místo všichni lidé (název celku použit pro označení části nebo naopak název části pro označení celku)
+The “I” can then “proceed to ‘integrate’ these elements, by assigning them to different orders,
+classes, genera, species and so on—which is to say,…order them such that their status either as
+essences or merely as attributes of these essences can be established” (6).
+What is Mars essentially? What are its most basic “Martian” characteristics and patterns of?
+Or with our filmmaker example: What is the essence of director’s style?
+How do we describe her artistic vision that helps us see how her choices of plot,
+camera work, subject matter, etc. come together into a recognizable effect?
+
+4. Ironic Reflection: ironie
+The “fourth move” of the “I” is what White calls the “ironic reflection on the inadequacy of the
+characterization with respect to the elements which resist inclusion in the…ordered totality” (6).
+This final stage of understanding fixates on the “contrasts or oppositions” that remain after we’ve tried to
+reduce the new experience to an essence in the third stage. We can never know Mars, we realize.
+The experience of Mars confounds our theory of Mars, throws us a curve ball.
+It keeps surprising us, which is why it’s worth devoting your life to studying it.
+Or repeated viewings of our once-new-and-strange film—now a classic—keep turning up intriguing ambiguities
+and interesting new problems of interpretation. The film refuses to be pigeonholed.
+Just when you think you’ve got it nailed down, you watch it again and it
+reveals another layer. That’s what makes it a classic!
+
+---
+### Další literatura (1/2)
+- [Cultural Analytics Lab](http://lab.culturalanalytics.info/)
+- [Mnemosyne: Meandrings through Aby Warburg's Atlas](https://warburg.library.cornell.edu/)
+- Felix Borecký, Michaela Fišerová, Martin Švantner, Ondřej Váša: Rozum, nerozum a předsvědčivost obrazů  (Togga 2012)
+- Leonardo Impett, Franco Moretti: [Totentanz. Operationalizing Aby Warburg’s Pathosformeln](https://litlab.stanford.edu/LiteraryLabPamphlet16.pdf) (2017)
+
+---
+### Další literatura (2/2)
+- Walter Benjamin: [Umělecké dílo ve věku své technické reprodukovatelnosti](https://monoskop.org/images/5/52/Benjamin_Walter_1936_2009_Umelecke_dilo_ve_veku_sve_technicke_reprodukovatelnosti.pdf) (1936)
+- Georges Didi-Huberman: "Ninfa moderna: Esej o spadlé draperii" (2002, Fra 2010)
+- W. J. T. Mitchell: Teorie obrazu (Karolinum 2017)
+- Miroslav Petříček: Myšlení obrazem (Herrmann &amp; synové 2009)
+
+---
+### Přečíst na příště
+- Marshall McLuhan: [Jak rozumět médiím](https://monoskop.org/images/7/77/McLuhan_Marshall_Jak_rozumet_mediim.pdf) (1964), strany 19-42.
+- Lev Manovich: [Principy nových médií](https://pile.sdbs.cz/docs/Principy_novych_medii.pdf), vybráno z "The Language of New Media" (2002).
+
+---
+###
+Děkuji za pozornost
+
+            </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        showNotes: false,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
+</html>
